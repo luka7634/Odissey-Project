@@ -1,4 +1,5 @@
 #include "uart.h"
+#include "board.h"
 
 static inline void uart_wait_tx_ready(void)
 {
