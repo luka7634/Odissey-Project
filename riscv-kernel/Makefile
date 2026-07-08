@@ -16,15 +16,14 @@ BUILD_DIR = build
 INCLUDE_DIR = include
 
 BOOT_SRC = $(BOOT_DIR)/boot.s
-KERNEL_SRC = $(KERNEL_DIR)/kernel.c
-DRIVERS_SRC = $(DRIVERS_DIR)/uart.c
+KERNEL_SRCS = $(wildcard $(KERNEL_DIR)/*.c)
+DRIVERS_SRCS = $(wildcard $(DRIVERS_DIR)/*.c)
 
 BOOT_OBJ = $(BUILD_DIR)/boot.o
-KERNEL_OBJ = $(BUILD_DIR)/kernel.o
-DRIVERS_OBJ = $(BUILD_DIR)/uart.o
+KERNEL_OBJS = $(patsubst $(KERNEL_DIR)/%.c, $(BUILD_DIR)/%.o, $(KERNEL_SRCS))
+DRIVERS_OBJS = $(patsubst $(DRIVERS_DIR)/%.c, $(BUILD_DIR)/%.o, $(DRIVERS_SRCS))
 
-
-OBJS = $(BOOT_OBJ) $(KERNEL_OBJ) $(DRIVERS_OBJ)
+OBJS = $(BOOT_OBJ) $(KERNEL_OBJS) $(DRIVERS_OBJS)
 
 ELF = $(BUILD_DIR)/kernel.elf
 BIN = $(BUILD_DIR)/kernel.bin
@@ -33,6 +32,9 @@ $(BUILD_DIR):
 	mkdir -p $(BUILD_DIR)
 
 all: $(BIN)
+
+$(BUILD_DIR)/%.o: $(KERNEL_DIR)/%.c | $(BUILD_DIR)
+	$(CC) $(CFLAGS) -c -o $@ $<
 
 $(BUILD_DIR)/%.o: $(DRIVERS_DIR)/%.c | $(BUILD_DIR)
 	$(CC) $(CFLAGS) -c -o $@ $<
@@ -46,17 +48,14 @@ $(BIN): $(ELF)
 $(BOOT_OBJ): $(BOOT_SRC) | $(BUILD_DIR)
 	$(AS) $(AFLAGS) -o $@ $<
 
-$(KERNEL_OBJ): $(KERNEL_SRC) | $(BUILD_DIR)
-	$(CC) $(CFLAGS) -c -o $@ $<
-
 clean:
 	rm -f $(BUILD_DIR)/*.o $(BUILD_DIR)/*.elf $(BUILD_DIR)/*.bin
 
 run: $(BIN)
-	qemu-system-riscv64 -M virt -m 2G -kernel $(BIN) -nographic
+	qemu-system-riscv64 -M virt -m 2G -bios none -kernel $(BIN) -nographic
 
 debug: $(BIN)
-	qemu-system-riscv64 -M virt -m 2G -kernel $(BIN) -nographic -s -S
+	qemu-system-riscv64 -M virt -m 2G -bios none -kernel $(BIN) -nographic -s -S
 
 dump: $(ELF)
 	$(OBJDUMP) -d $(ELF) | less
