@@ -181,7 +181,7 @@ Este proyecto no sería posible sin:
 ## 📬 Contacto
 
 - **Autor**: [Roybel Carbonell Camejo](https://github.com/luka7634/)
-- **GitHub**: [github.com/tu-usuario/unbound-pda](https://github.com/luka7634/Odissey-Project)
+- **GitHub**: [github.com/uka7634/Odissey-Project](https://github.com/luka7634/Odissey-Project)
 - **Email**: luka68231@gmail.com
 
 ---
