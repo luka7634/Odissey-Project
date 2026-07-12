@@ -97,7 +97,7 @@ sudo apt install gcc-riscv64-unknown-elf binutils-riscv64-unknown-elf qemu-syste
 
 ```bash
 git clone https://github.com/luka7634/Odissey-Project
-cd unbound-pda
+cd Odissey-Project
 ```
 ---
 
