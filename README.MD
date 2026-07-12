@@ -96,7 +96,7 @@ sudo apt install gcc-riscv64-unknown-elf binutils-riscv64-unknown-elf qemu-syste
 ### Clonar el Repositorio
 
 ```bash
-git clone https://github.com/tu-usuario/unbound-pda.git
+git clone https://github.com/luka7634/Odissey-Project
 cd unbound-pda
 ```
 ---
