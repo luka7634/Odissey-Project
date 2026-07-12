@@ -100,11 +100,11 @@ git clone https://github.com/luka7634/Odissey-Project
 cd Odissey-Project
 ```
 ---
-
+unbound-pda
 ## 📂 Estructura del Proyecto
 
 ```
-unbound-pda/
+Odissey-Project/
 ├── boot/
 │   └── boot.s              # Código de arranque en ensamblador
 ├── kernel/
