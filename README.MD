@@ -96,7 +96,7 @@ sudo apt install gcc-riscv64-unknown-elf binutils-riscv64-unknown-elf qemu-syste
 ### Clonar el Repositorio
 
 ```bash
-git clone https://github.com/tu-usuario/unbound-pda.git
+git clone https://github.com/luka7634/Odissey-Project
 cd unbound-pda
 ```
 ---
@@ -181,7 +181,7 @@ Este proyecto no sería posible sin:
 ## 📬 Contacto
 
 - **Autor**: [Roybel Carbonell Camejo](https://github.com/luka7634/)
-- **GitHub**: [github.com/tu-usuario/unbound-pda](https://github.com/luka7634/Odissey-Project)
+- **GitHub**: [github.com/luka7634/Odissey-Project](https://github.com/luka7634/Odissey-Project)
 - **Email**: luka68231@gmail.com
 
 ---
