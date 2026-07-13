@@ -1,4 +1,5 @@
 #include "uart.h"
+#include "board.h"
 
 static inline void uart_wait_tx_ready(void)
 {
@@ -41,7 +42,7 @@ void uart_puthex(unsigned long long num)
     while (num > 0)
     {
         int digit = num & 0xF;
-        if (num < 10)
+        if (digit < 10)
             hex[i++] = '0' + digit;
         else
             hex[i++] = 'A' + (digit - 10);
