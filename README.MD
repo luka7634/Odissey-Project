@@ -96,15 +96,15 @@ sudo apt install gcc-riscv64-unknown-elf binutils-riscv64-unknown-elf qemu-syste
 ### Clonar el Repositorio
 
 ```bash
-git clone https://github.com/luka7634/Odissey-Project.git
-cd unbound-pda
+git clone https://github.com/luka7634/Odissey-Project
+cd Odissey-Project
 ```
 ---
-
+unbound-pda
 ## 📂 Estructura del Proyecto
 
 ```
-unbound-pda/
+Odissey-Project/
 ├── boot/
 │   └── boot.s              # Código de arranque en ensamblador
 ├── kernel/
